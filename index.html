@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked!</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+        #console {
+            white-space: pre;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ERROR ROOM</h1>
+    <pre id="console">Initializing...</pre>
+
+    <!-- Add the JavaScript for the prank here -->
+    <script>
+        // Fullscreen script
+        document.documentElement.requestFullscreen();
+
+        const codeLines = [
+            "Attempting breach...",
+            "Bypassing firewall...",
+            "Accessing encrypted files...",
+            "Injecting malicious code...",
+            "Hack successful!",
+            "Welcome to the ERROR ROOM"
+        ];
+        let index = 0;
+        const console = document.getElementById("console");
+        function typeCode() {
+            if (index < codeLines.length) {
+                console.textContent += codeLines[index] + "\n";
+                index++;
+                setTimeout(typeCode, 1000);
+            }
+        }
+        setTimeout(typeCode, 1000);
+
+        // Fake alert popup script
+        function fakeAlert() {
+            alert("Critical Error: System Hack Detected!");
+            setTimeout(fakeAlert, 5000); // Repeat every 5 seconds
+        }
+        fakeAlert();
+
+        // Prevent closing the page
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave? Your system might be compromised!";
+        };
+    </script>
+
+    <!-- Optionally, add a sound -->
+    <audio autoplay loop>
+        <source src="error-sound.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
