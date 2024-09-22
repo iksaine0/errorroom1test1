@@ -21,41 +21,51 @@
     <h1>ERROR ROOM</h1>
     <pre id="console">Initializing...</pre>
 
-    <!-- Add the JavaScript for the prank here -->
     <script>
-        // Fullscreen script
-        document.documentElement.requestFullscreen();
-
-        const codeLines = [
-            "Attempting breach...",
-            "Bypassing firewall...",
-            "Accessing encrypted files...",
-            "Injecting malicious code...",
-            "Hack successful!",
-            "Welcome to the ERROR ROOM"
-        ];
-        let index = 0;
-        const console = document.getElementById("console");
-        function typeCode() {
-            if (index < codeLines.length) {
-                console.textContent += codeLines[index] + "\n";
-                index++;
-                setTimeout(typeCode, 1000);
-            }
+        // Function to trigger full-screen mode
+        function enterFullScreen() {
+            document.documentElement.requestFullscreen();
         }
-        setTimeout(typeCode, 1000);
 
-        // Fake alert popup script
+        // Function to simulate hacking
+        function simulateHack() {
+            const codeLines = [
+                "Attempting breach...",
+                "Bypassing firewall...",
+                "Accessing encrypted files...",
+                "Injecting malicious code...",
+                "Hack successful!",
+                "Welcome to the ERROR ROOM"
+            ];
+            let index = 0;
+            const console = document.getElementById("console");
+            function typeCode() {
+                if (index < codeLines.length) {
+                    console.textContent += codeLines[index] + "\n";
+                    index++;
+                    setTimeout(typeCode, 1000);
+                }
+            }
+            setTimeout(typeCode, 1000);
+        }
+
+        // Function for fake alert pop-ups
         function fakeAlert() {
             alert("Critical Error: System Hack Detected!");
             setTimeout(fakeAlert, 5000); // Repeat every 5 seconds
         }
-        fakeAlert();
 
-        // Prevent closing the page
+        // Function to warn about closing the page
         window.onbeforeunload = function() {
             return "Are you sure you want to leave? Your system might be compromised!";
         };
+
+        // Start the prank with a delay
+        setTimeout(() => {
+            enterFullScreen();
+            simulateHack();
+            fakeAlert();
+        }, 10000); // Delay the prank by 10 seconds
     </script>
 
     <!-- Optionally, add a sound -->
