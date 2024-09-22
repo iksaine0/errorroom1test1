@@ -25,4 +25,56 @@
         }
         #countdown {
             margin-top: 20px;
-           
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ERROR ROOM</h1>
+    <pre id="console">Initializing...</pre>
+    <div id="countdown">Time remaining: <span id="time">60</span> seconds</div>
+
+    <script>
+        // Function to enter full-screen mode
+        function enterFullScreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function simulateHack() {
+            const codeLines = [
+                "Attempting breach...",
+                "Bypassing firewall...",
+                "Accessing encrypted files...",
+                "Scanning for vulnerabilities...",
+                "Threat detected: malware...",
+                "Injecting malicious code...",
+                "Hacking mainframe...",
+                "Accessing user credentials...",
+                "Hack successful!",
+                "Welcome to the ERROR ROOM"
+            ];
+            let index = 0;
+            const console = document.getElementById("console");
+            function typeCode() {
+                if (index < codeLines.length) {
+                    console.textContent += codeLines[index] + "\n";
+                    console.scrollTop = console.scrollHeight; // Scroll down
+                    index++;
+                    setTimeout(typeCode, 1000);
+                }
+            }
+            setTimeout(typeCode, 1000);
+        }
+
+        function fakeAlert() {
+            alert("Critical Error: System Hack Detected!");
+            setTimeout(fakeAlert, 5000); // Repeat
